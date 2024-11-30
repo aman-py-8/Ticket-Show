@@ -1,0 +1,26 @@
+<div class="login-box">
+  <link rel="stylesheet" href={{ url_for('static', filename='adminstyle.css') }}>
+        <h4> <a href="{{ url_for('index') }}"> User Login?</a> <h4/>
+        <h2>Movie Tickets</h2>
+        <form>
+            <div class="user-box">
+                <input type="text" name="" required="">
+                <label>Admin Username</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="" required="">
+                <label>Admin Password</label>
+            </div>
+
+            <div class="button-form">
+
+                <a id="submit" href="{{ url_for('aflogin') }}">
+                   Login As Admin
+                </a>
+
+                
+
+            </div>
+
+        </form>
+    </div>

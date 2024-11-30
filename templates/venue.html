@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Venues</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href={{ url_for('static', filename='admindash.css') }}>
+		<style>
+h3 {
+            margin: 0 0 30px;
+            padding: 0;
+            color: #ff0000;
+            text-align: right;  
+}
+</style>
+		 <a href="{{ url_for('aflogin') }}"> <b>HOME<b></a> |
+		 <a href="{{ url_for('show') }}"> <b>Shows<b></a> 
+		 <h3><a href="{{ url_for('index') }}"> <b><FONT COLOR="#ff0000">Logout</FONT><b></a></h3>
+		
+	</head>
+	<body>
+		<div> <h1>Add A Venue</h1>
+		<form action="/venue" method="post" enctype="multipart/form-data">
+
+		<label for="Venue">Venue Name:</label>
+		<input type="text" id="venue" name="venue">
+		<br><br>
+		<label for="Place">Venue Place:</label>
+		<input type="text" id="Place" name="Place">
+		<br><br>
+		<label for="Capacity">Seat Capacity:</label>
+		<input type="text" id="Capacity" name="Capacity">
+		
+    <br><br>
+    <input type="submit" value="Add Venue">
+</form>
+</div>
+
+<div> {% for venue in venues %}
+        
+      <h2> ID </h2>  <h4>{{ venue.id }}</h4>
+
+        <b>Venue Name :</b> {{ venue.v_name }} <br>
+        <b>Venue Place :</b> {{ venue.v_place }} <br>
+        <b>Venue Capacity :</b> {{ venue.v_cap }} <br>
+        <a href='/venue/edit_ven/{{venue.id}}'>Edit</a>
+        <a href='/venue/delete_ven/{{venue.id}}'><FONT COLOR="#ff0000">Delete</FONT></a>
+        
+        
+        {% endfor%} </div>
+	</body>
+</html>

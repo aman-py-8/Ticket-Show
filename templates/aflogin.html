@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Welcome Admin</title>
+		<style>
+body {
+            background: #202022;
+            font-family: var(--font-style);
+        }
+.venue {
+        box-shadow: 0 15px 50px rgba(198, 122, 177);
+        width: 50%;
+        margin: 0 auto;
+        }
+
+.show {
+        box-shadow: 0 15px 50px rgba(198, 122, 177);
+        width: 50%;
+        margin: auto;
+        margin-top: 50px;
+        }
+h2 {         
+            color: white;
+            text-align: center;
+            }
+a { 
+            position: center;
+            }
+img { 
+      display: block;
+      margin: 0 auto;
+            }
+.header-links {
+  color: red;
+  text-align: center;
+  
+}
+
+</style>
+		
+	</head>
+	<body>
+	<div class="venue">
+	<h2> Go to Venue </h2>
+		<a href="{{ url_for('venue') }}"> <img src="{{ url_for('static', filename='images/ven1.png') }}" width="200" height="150"></a> </div>
+	<div class=show>
+    <h2> Go to Shows </h2>
+		<a href="{{ url_for('show') }}"> <img src="{{ url_for('static', filename='images/mov.png') }}" width="180" height="150"</a> </div>
+	</body>
+</html>

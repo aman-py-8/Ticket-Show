@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Ticket Show</title>
+     </head>
+
+<div class="login-box">
+  <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+        <h4> <a href="{{ url_for('adminlogin') }}">Admin Login?</a> <h4/>
+        <h2>Movie Tickets</h2>
+        <form action="/login" method="post" enctype="multipart/form-data">
+            <div class="user-box">
+                <input type="text" name="username" id=username required="">
+                <label>Username</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="password" id=password required="">
+                <label>Password</label>
+            </div>
+
+            <div class="button-form">
+
+                <input type="submit" class="btn btn-primary" value="Login">
+                
+                
+              
+            </div>
+           <div> {% if message %}
+                <p style="color:red; text-align: center;"><b>{{ message }}<b></p>
+            {% endif %} </div>
+          <br><br>
+            <div id="register">
+                    Don't have an account ?
+                    <a href="{{ url_for('Register') }}">
+                        Register
+                    </a>
+                </div>
+            
+
+        </form>
+    </div>
+</html>

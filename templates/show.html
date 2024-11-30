@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Shows</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href={{ url_for('static', filename='admindash.css') }}>
+		<style>
+h3 {
+            margin: 0 0 30px;
+            padding: 0;
+            color: #ff0000;
+            text-align: right;  
+}
+</style>
+		<a href="{{ url_for('aflogin') }}"> <b>HOME<b></a> |
+		<a href="{{ url_for('venue') }}"> <b>Venue<b></a>
+		<h3><a href="{{ url_for('index') }}"> <b><FONT COLOR="#ff0000">Logout</FONT><b></a></h3>
+	</head>
+<body>
+<div> <h1>Add A Show</h1>
+		<form action="/show" method="post" enctype="multipart/form-data">
+
+		<label for="show">Show Name:</label>
+		<input type="text" id="show" name="show">
+		<br><br>
+		
+		<label for="price">Ticket Price:</label>
+		<input type="text" id="price" name="price">
+		<br><br>
+		<label for="Rating">Rating:</label>
+		 <select name="Rating" id="Rating" >
+		   {% for i in range(1,11) %}
+		        <option value="{{ i }}"> {{ i }} </option>
+		        {% endfor %} </select>
+		<br><br> 
+		<label for="Venue_sel">Select a Venue:</label>
+            <select name="Venue_sel" id="Venue_sel">
+            {% for venue in venues %}
+                <option value="{{ venue.id }}">{{ venue.v_name }}</option>
+                {% endfor %}
+            </select>
+        <br><br>
+		<label for="movtag">Tag:</label>
+		<input type="text" id="movtag" name="movtag" placeholder="Horror/Thriller/Suspense/Drama">
+		<br><br>
+		<label for="image">Upload Movie Poster:</label>
+		<input type="file" id="image" name="image">
+    <br><br>
+    <input type="submit" value="Add Show">
+</form>
+</div>
+
+<section home-wrapper thumbnail-wrapper>
+  <ul class="recent-movies">
+    
+    {% for show in shows %}
+      
+      <li class="thumb col-md-2 col-sm-4 col-xs-6">
+      
+        <h2> ID </h2>  <h4>{{ show.id }}</h4>
+       <figure> <img src="{{ url_for('show_poster', id=show.id) }}" width="180" height="180" alt="{{ show.title }} Poster"> </figure>
+            <br>
+       <p> <b>Show Name :</b> {{ show.title }} <br>
+        <b>Show Price :</b> {{ show.showprice }} <br>
+        <b>Added Date :</b> {{ show.date_added }} <br>
+        <b>Rating:</b> {{ show.ratings }} <br>
+        <b>Venue:</b> {{ show.venue.v_name }} <br>
+        <b>Tag:</b>
+                {% for tag in show.tags %}
+                    {{ tag.name }}
+                    {% endfor %}
+                        </p>
+        <br>
+        <div class="button-form">
+        <a href='/show/edit_show/{{show.id}}' class="btn btn-primary"><FONT COLOR="yellow">Edit</FONT></a>
+        <a href='/show/delete_show/{{show.id}}' class="btn btn-primary"><FONT COLOR="#ff0000">Delete</FONT></a> 
+        </li>
+           
+        {% endfor%} </div>
+    </ul>
+    </section>
+        
+	</body>
+</html>

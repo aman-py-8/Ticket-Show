@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Edit Show</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href={{ url_for('static', filename='admindash.css') }}>
+	</head>
+	<body>
+        <div> <h1>Edit Show</h1>
+        
+		        <form action="/show/edit_show/{{show.id}}" method="post" enctype="multipart/form-data">
+
+                    <figure style="text-align: center; margin-left: 170px;"> <img src="{{ url_for('show_poster', id=show.id) }}" width="180" height="180" alt="{{ show.title }} Poster"> </figure>
+                    <br>
+
+		        <label for="show">Show Name:</label>
+		        <input type="text" id="show" name="show" value="{{show.title}}">
+		         <br><br> 
+		        
+		        <label for="price">Ticket Price:</label>
+		        <input type="text" id="price" name="price" value="{{show.showprice}}">
+		        <br><br>
+		        
+		        <label for="Rating">Rating:</label>
+		             <select name="Rating" id="Rating" >
+		                 {% for i in range(1,11) %}
+		                     <option value="{{ i }}" {% if i == show.ratings %}selected{% endif %}> {{ i }} </option>
+		        {% endfor %} </select>
+		        <br><br>
+		        
+		        
+    <input type="submit" value="Edit Show">
+</form>

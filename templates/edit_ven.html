@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Edit Venue</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href={{ url_for('static', filename='admindash.css') }}>
+	</head>
+	<body>
+		<div> <h1>Edit Venue</h1>
+		<form action='/venue/edit_ven/{{venue.id}}' method="post" enctype="multipart/form-data">
+
+		<label for="Venue">Venue Name:</label>
+		<input type="text" id="venue" name="venue" value="{{venue.v_name}}">
+		<br><br>
+		<label for="Place">Venue Place:</label>
+		<input type="text" id="Place" name="Place" value="{{venue.v_place}}">
+		<br><br>
+		<label for="Capacity">Seat Capacity:</label>
+		<input type="text" id="Capacity" name="Capacity" value="{{venue.v_cap}}">
+		
+    <br><br>
+    <input type="submit" value="Edit Venue">
+</form>

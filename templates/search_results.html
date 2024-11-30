@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Search Results</title>
+	<link rel="stylesheet" href={{ url_for('static', filename='search.css') }}>
+	</head>
+	<body>
+		<div>{% if results %}
+    <h2>Search results for "{{ request.args.get('search') }}"</h2>
+    <ul>
+      {% for result in results %}
+      
+   <li>
+   <img src="{{ url_for('show_poster', id=result.id) }}" alt="{{ result.title }}" width="180" height="250"> <br>
+   <a href="{{ url_for('book_ticket', show_id=result.id) }}">{{ result.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No results found for "{{ request.args.get('query') }}"</p>
+  {% endif %}
+</div>
+	</body>
+</html>

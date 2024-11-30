@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h2>Book Ticket for Show: {{ show.title }}</h2>
+    <link rel="stylesheet" href={{ url_for('static', filename='book_ticket.css') }}>
+    <head>
+<body>
+    <img src="{{ url_for('show_poster', id=show.id) }}" alt="{{ show.title }}" width="180" height="180">
+        <h3><b>Available Seats:</b> {{ available_seats }}</h3>
+        
+        <h3><b>Ticket Price</b> : {{ show.showprice }} </h3>
+        
+        <h3><b>Date Added</b> : {{ show.date_added }} </h3> 
+        
+        <h3><b>Rating</b> : {{ show.ratings }} </h3>
+        
+        <h3><b>Tag</b> :  {% for tag in show.tags %}
+                         {{ tag.name }} 
+                            {% endfor %} </h3>
+        <br><br>
+        <form method="post">
+            <input type="hidden" name="show_id" value="{{ show.id }}">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required=""> 
+            <br><br>
+            <label for="venue">Select Venue:</label>
+            <select name="venue" id="venue" >
+                    <{% for venue in venue  %}
+                        <option value="{{ venue.v_name }}">{{ venue.v_name }}</option>
+                        {% endfor %}
+                 </select>
+                 <br><br>
+            <label for="showtime">Select Show Time:</label>
+            <select name="showtime" id="showtime" >
+                {% for i in ["09:00-12:00 AM","12:00-03:00 PM","03:00:06:00 PM","06:00-09:00 PM"] %}
+                    <option value="{{ i }}"> {{ i }} </option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <label for="num_tick">Select Number Of Seats To Book:</label>
+            <select name="num_tick" id="num_tick" >
+                {% for i in range(1,11) %}
+                    <option value="{{ i }}"> {{ i }} </option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <input type="submit" value="Book">
+        </form>
+                </body>

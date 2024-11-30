@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Welcome to Ticket Show</title>
+		<link rel="stylesheet" href={{ url_for('static', filename='show.css') }}>
+		<h1> Ticket Show </h1>
+		<h4 style="text-align: right;"><a href="{{ url_for('index') }}"> <b><FONT COLOR="#ff0000">Logout</FONT><b></a></h4>
+		<div> {% if message %}
+                <p style="color:red; text-align: center;"><b>{{ message }}<b></p>
+            {% endif %} </div>
+            
+        <div class="search">
+            <form action="/search" method="GET">
+                <input type="search" name="search" class="search" placeholder="Search" autocomplete="off">
+                <button type="submit" style='margin-left: 570px;'>Search</button>
+              </div>
+              </form>
+	</head>
+	<body>
+		<section home-wrapper thumbnail-wrapper>
+  <ul class="recent-movies">
+    {% for show in shows %}
+    <li class="thumb col-md-2 col-sm-4 col-xs-6">
+        <figure>
+            <img src="{{ url_for('show_poster', id=show.id) }}" alt="{{ show.title }} " width="237" height="360">
+        </figure>
+        <figcaption>
+            <p> Show Name : {{ show.title }}</p>
+            <p> Rating : {{ show.ratings }}</p>
+        <div class="button-form">
+             <a href='/book/{{show.id}}' class="btn btn-primary">Book</a>
+            </figcaption>
+        </div>
+    </li> 
+    {% endfor %}
+    </ul>
+            </section>
+	</body>
+</html>
+

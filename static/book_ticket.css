@@ -1,0 +1,82 @@
+     body {
+            background: #202022;
+            font-family: var(--font-style);
+        }
+        
+    h2 {text-align: center;
+            font-family: Arial, sans-serif;
+            color: White;
+        }
+
+    
+    img {
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0 15px 50px rgba(150, 122, 230);
+    }
+
+    h3 {
+        font-family: Arial, sans-serif;
+        color: Red;
+        text-align: center;
+    }
+
+    form {
+        margin: 30px auto;
+        width: 50%;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-family: Arial, sans-serif;
+        color: #6d6d6d;
+    }
+
+    input[type="text"], select {
+        margin-bottom: 20px;
+        padding: 10px;
+        width: 100%;
+        font-family: Arial, sans-serif;
+    }
+
+    input[type="submit"] {
+            background: #202022;
+            padding: 10px 20px;
+            color: #CBBDDB;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            letter-spacing: 4px;
+            border: 1px solid #df7272;
+            margin: auto;
+          
+    }
+    input[type="submit"]:hover {
+        background-color: #555;
+    }
+    .button-form {
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #202022;
+            color: #CBBDDB;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            letter-spacing: 4px;
+            border: 1px solid #df7272;
+            margin: auto;
+         }
+         .btn:hover {
+    background-color: #555;
+}
